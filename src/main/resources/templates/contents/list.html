@@ -25,17 +25,16 @@
 
                         <!-- 記事エリア -->
                         <div
-                            class="twitter__block w-100 d-block p-3 mb-2 border-bottom border-white-50 overflow-hidden">
+                            class="twitter__block w-100 d-block p-3 mb-2 border-bottom border-white-50 overflow-hidden"
+                            th:each="posts:${postsList}">
                             <figure class="p-0 m-0 float-start" width="50px">
                                 <img th:src="@{/img/icon.jpg}" class="rounded-circle" width="50px">
                             </figure>
-                            <div th:each="users:${usersList}">
                                 <div class="twitter__block-text">
-                                    <div class="name" th:text="${users.userName}"><span class="name_reply"
-                                            th:text="${users.userId}"></span></div>
+                                    <span class="name" th:text="${posts.users.userName}"></span>
+                                    <span class="name_reply"  th:text="'@' + ${posts.users.userId}"></span>
                                     <div class="date">10分前</div>
-                                    <div class="text">
-                                        今日も終電だよ～<br>
+                                    <div class="text" th:text="${posts.postContent}">
                                     </div>
                                     <div class="twitter__icon">
                                         <span class="twitter-bubble"></span>
@@ -43,7 +42,6 @@
                                         <span class="twitter-heart"></span>
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
                         <!-- 記事エリア -->
@@ -53,7 +51,9 @@
                                 <img th:src="@{/img/icon.jpg}" class="rounded-circle" width="50px">
                             </figure>
                             <div class="twitter__block-text">
-                                <div class="name">うさきち<span class="name_reply">@usa_tan</span></div>
+                                <div class="name">うさきち
+                                    <span class="name_reply">@usa_tan</span>
+                                </div>
                                 <div class="date">10分前</div>
                                 <div class="text">
                                     今日も終電だよ～<br>

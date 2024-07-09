@@ -1,4 +1,4 @@
-package com.techacademy.dao;
+package com.techacademy.mapper;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.techacademy.entity.Users;
 
 @Mapper
-public interface UsersDao {
+public interface UsersMapper {
 
     //1件検索
     Users findById(Users users);

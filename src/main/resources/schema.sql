@@ -1,5 +1,8 @@
+--postsがあれば削除
+DROP TABLE IF EXISTS posts;
+
 --usersがあれば削除
-DROP TABLR IF EXISTS users;
+DROP TABLE IF EXISTS users;
 
 --usersがなければ新しく作成
 CREATE TABLE IF NOT EXISTS users(
@@ -14,12 +17,9 @@ delete_flg BOOLEAN,
 PRIMARY KEY(user_id)
 );
 
---postsがあれば削除
-DROP TABLR IF EXISTS posts;
-
 --postsがなければ新しく作成
 CREATE TABLE IF NOT EXISTS posts(
-id INT AUTO_INCREMENTE,
+id INT AUTO_INCREMENT,
 user_id VARCHAR(20) NOT NULL,
 post_content VARCHAR(100) NOT NULL,
 post_img BLOB,

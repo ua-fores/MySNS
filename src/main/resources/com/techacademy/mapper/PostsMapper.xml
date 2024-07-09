@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.techacademy.mapper.PostsMapper">
+    <select id="findById" resultType="com.techacademy.entity.Posts">
+        SELECT
+            id,
+            userId,
+            postContent,
+            postImg,
+            perentId,
+            createDate,
+            updateDate,
+            deleteFlg
+        FROM
+            posts
+        WHERE
+            id = #{id}
+    </select>
+    <select id="findAll" resultType="com.techacademy.entity.Posts">
+        SELECT
+            *
+        FROM
+            posts
+    </select>
+    <select id="findListAll" resultMap="postsList">
+        SELECT
+             users.user_name, users.user_id, users.icon_img, posts.post_content, posts.create_date, posts.post_img
+        FROM
+            posts
+        LEFT JOIN
+            users
+        ON
+            posts.user_id = users.user_id
+    </select>
+    <resultMap id="postsList" type="com.techacademy.entity.Posts">
+        <result property="postContent" column="post_content" />
+        <result property="createDate" column="create_date" />
+        <result property="postImg" column="post_img" />
+        <association property="userId" resultMap="usersList"/>
+    </resultMap>
+    <resultMap id="usersList" type="com.techacademy.entity.Users">
+        <result property="userId" column="user_id" />
+        <result property="userName" column="user_name" />
+        <result property="iconImg" column="icon_img" />
+       <!--
+        <result property="userPw" column="user_pw" />
+        <result property="email" column="email" />
+        <result property="createDate" column="create_date" />
+        <result property="dereteFlg" column="delete_flg" />
+        -->
+    </resultMap>
+</mapper>

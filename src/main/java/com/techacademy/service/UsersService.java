@@ -5,28 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.techacademy.dao.UsersDao;
 import com.techacademy.entity.Users;
+import com.techacademy.mapper.UsersMapper;
 
 @Service
 public class UsersService {
 
-    @Autowired
-    UsersDao usersDao;
+    private final UsersMapper usersMapper;
 
-    public UsersService(UsersDao usersDao) {
-        this.usersDao = usersDao;
+    @Autowired
+    public UsersService(UsersMapper usersMapper) {
+        this.usersMapper = usersMapper;
     }
 
     //1件検索
     public Users findById(String userId) {
         Users users = new Users();
         users.setUserId(userId);
-        return this.usersDao.findById(users);
+        return this.usersMapper.findById(users);
     }
 
     //全件取得
     public List<Users> findAll(){
-        return this.usersDao.findAll();
+        return this.usersMapper.findAll();
     }
 }
