@@ -17,6 +17,6 @@ public class Posts {
     private Boolean deleteFlg;
 
 
-//    private Users users;
-    private List<Users> users;
+    private Users users;
+//    private List<Users> users;
 }

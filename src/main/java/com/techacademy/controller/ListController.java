@@ -13,12 +13,12 @@ import com.techacademy.service.UsersService;
 @RequestMapping("contents")
 public class ListController {
 
-    private final UsersService usersService;
+//    private final UsersService usersService;
     private final PostsService postsService;
 
     @Autowired
     public ListController(UsersService usersService, PostsService postsService) {
-        this.usersService = usersService;
+//        this.usersService = usersService;
         this.postsService = postsService;
     }
 

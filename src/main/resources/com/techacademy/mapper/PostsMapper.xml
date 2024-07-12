@@ -39,7 +39,10 @@
         <result property="postContent" column="post_content" />
         <result property="createDate" column="create_date" />
         <result property="postImg" column="post_img" />
+        <association property="users" resultMap="usersList"/>
+        <!--
         <association property="userId" resultMap="usersList"/>
+     -->
     </resultMap>
     <resultMap id="usersList" type="com.techacademy.entity.Users">
         <result property="userId" column="user_id" />
